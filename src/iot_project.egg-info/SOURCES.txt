@@ -1,0 +1,15 @@
+pyproject.toml
+readme.md
+src/inference.py
+src/model.py
+src/read_dataset.py
+src/train.py
+src/api/__init__.py
+src/api/main.py
+src/api/schemas.py
+src/api/store.py
+src/iot_project.egg-info/PKG-INFO
+src/iot_project.egg-info/SOURCES.txt
+src/iot_project.egg-info/dependency_links.txt
+src/iot_project.egg-info/requires.txt
+src/iot_project.egg-info/top_level.txt

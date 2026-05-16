@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IoT Anomaly Detection</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Stratosphere IoT-23 · XGBoost</p>
+        <h1>Детекция аномалий IoT</h1>
+        <p class="subtitle">Поток сетевых соединений с устройств → предобработка → классификация benign / malicious</p>
+      </div>
+      <span class="status-pill" id="connectionStatus">Подключение…</span>
+    </header>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <span class="stat-label">Всего событий</span>
+        <strong class="stat-value" id="statTotal">0</strong>
+      </article>
+      <article class="stat-card benign">
+        <span class="stat-label">Benign</span>
+        <strong class="stat-value" id="statBenign">0</strong>
+      </article>
+      <article class="stat-card malicious">
+        <span class="stat-label">Malicious</span>
+        <strong class="stat-value" id="statMalicious">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Устройств</span>
+        <strong class="stat-value" id="statDevices">0</strong>
+      </article>
+    </section>
+
+    <section class="panels">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Отправить поток</h2>
+          <p>Имитация данных с IoT-устройства</p>
+        </div>
+        <form id="flowForm" class="flow-form">
+          <label>
+            Устройство
+            <input name="device_id" value="amazon-echo" required />
+          </label>
+          <label>
+            Протокол
+            <select name="proto">
+              <option value="tcp">tcp</option>
+              <option value="udp">udp</option>
+              <option value="icmp">icmp</option>
+            </select>
+          </label>
+          <label>
+            Порт назначения
+            <input name="id.resp_p" type="number" value="443" />
+          </label>
+          <label>
+            Orig bytes
+            <input name="orig_bytes" type="number" value="120" />
+          </label>
+          <label>
+            Resp bytes
+            <input name="resp_bytes" type="number" value="0" />
+          </label>
+          <label>
+            Conn state
+            <input name="conn_state" value="S0" />
+          </label>
+          <button type="submit" class="btn primary">Классифицировать</button>
+        </form>
+        <div class="sim-controls">
+          <button id="startSim" class="btn">▶ Симулятор потока</button>
+          <button id="stopSim" class="btn ghost">■ Стоп</button>
+          <button id="clearEvents" class="btn ghost">Очистить</button>
+        </div>
+      </article>
+
+      <article class="panel feed-panel">
+        <div class="panel-head">
+          <h2>Лента детекций</h2>
+          <p id="modelPath">Модель: …</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Время</th>
+                <th>Устройство</th>
+                <th>Протокол</th>
+                <th>Вероятность</th>
+                <th>Класс</th>
+              </tr>
+            </thead>
+            <tbody id="eventsBody"></tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+Metadata-Version: 2.4
+Name: iot-project
+Version: 0.1.0
+Summary: IoT dataset and training utilities
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.2
+Requires-Dist: polars>=1.0
+Requires-Dist: numpy>=1.26
+Requires-Dist: pyarrow>=15.0
+Requires-Dist: ipykernel>=6.29
+Requires-Dist: jupyterlab>=4.0
+Requires-Dist: ipython>=8.18
+Requires-Dist: ipywidgets>=8.1
+Requires-Dist: scikit-learn>=1.4
+Requires-Dist: scipy>=1.11
+Requires-Dist: xgboost>=2.0
+Requires-Dist: lightgbm>=4.0
+Requires-Dist: catboost>=1.2
+Requires-Dist: tqdm>=4.66
+Requires-Dist: charset-normalizer>=3.3
+Requires-Dist: dpkt>=1.9
+Requires-Dist: matplotlib>=3.8
+Requires-Dist: seaborn>=0.13
+Requires-Dist: fastapi>=0.115
+Requires-Dist: uvicorn[standard]>=0.32
+Requires-Dist: pydantic>=2.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+Requires-Dist: ruff>=0.4; extra == "dev"

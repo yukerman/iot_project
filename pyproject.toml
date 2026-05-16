@@ -33,6 +33,10 @@ dependencies = [
     # Визуализация и сводки
     "matplotlib>=3.8",
     "seaborn>=0.13",
+    # API и веб-интерфейс детекции
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -43,4 +47,8 @@ dev = [
 
 [tool.setuptools]
 package-dir = { "" = "src" }
-py-modules = ["read_dataset"]
+py-modules = ["read_dataset", "model", "train", "inference"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["api*"]
